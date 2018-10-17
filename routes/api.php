@@ -21,3 +21,5 @@ Route::middleware('auth:api')->get('/user', function (Request $request) {
 
 
 Route::resource('satuans', 'satuanAPIController');
+
+Route::resource('dataobats', 'dataobatAPIController');
