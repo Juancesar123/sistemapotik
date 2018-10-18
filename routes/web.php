@@ -23,7 +23,7 @@ Route::Resource('reportpenjualan','laporanpenjualan');
 Route::resource('satuans', 'satuanController');
 
 Route::resource('dataobats', 'dataobatController');
-
+Route::get('/getstatistik','laporanpenjualan@datastatistik');
 
 
 Route::resource('transaksiObats', 'transaksi_obatController');

@@ -1,0 +1,20 @@
+{
+  "name": "public",
+  "homepage": "https://github.com/Juancesar123/sistemapotik",
+  "authors": [
+    "juancesar123 <juancesarandrianto@gmail.com>"
+  ],
+  "description": "",
+  "main": "",
+  "license": "MIT",
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "test",
+    "tests"
+  ],
+  "dependencies": {
+    "chart.js": "^2.7.3"
+  }
+}

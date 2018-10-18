@@ -1,7 +1,7 @@
 <?php
 
 namespace App\Http\Controllers;
-
+use App\Models\transaksi_obat as TransaksiPenjualan;
 use Illuminate\Http\Request;
 
 class laporanpenjualan extends Controller
@@ -15,7 +15,10 @@ class laporanpenjualan extends Controller
     {
         return view('reportpenjualan.index');
     }
-
+    public function datastatistik(){
+        $data = TransaksiPenjualan::all();
+        return $data;
+    }
     /**
      * Show the form for creating a new resource.
      *
