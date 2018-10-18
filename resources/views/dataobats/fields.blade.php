@@ -6,8 +6,12 @@
 
 <!-- Id Satuan Field -->
 <div class="form-group col-sm-6">
-    {!! Form::label('id_satuan', 'Id Satuan:') !!}
-    {!! Form::select('id_satuan', ['pcs' => 'pcs', 'box' => 'box'], null, ['class' => 'form-control']) !!}
+    {!! Form::label('Satuan', 'Satuan:') !!}
+    <select class="form-control" name="id_satuan">
+    @foreach($datasatuan as $key)
+        <option value="{{$key->id}}">{{$key->nama_satuan}}</option>
+    @endforeach
+    </select>
 </div>
 
 <!-- Jumlah Field -->

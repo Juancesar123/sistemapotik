@@ -29,7 +29,8 @@ class dataobatDataTable extends DataTable
      */
     public function query(dataobat $model)
     {
-        return $model->newQuery();
+        return $model->newQuery()->join('satuans', 'dataobats.id_satuan', '=', 'satuans.id')
+        ->select('dataobats.*','satuans.nama_satuan');
     }
 
     /**
@@ -65,7 +66,7 @@ class dataobatDataTable extends DataTable
     {
         return [
             'nama_obat',
-            'id_satuan',
+            'nama_satuan',
             'jumlah',
             'harga',
             'kode_obat'

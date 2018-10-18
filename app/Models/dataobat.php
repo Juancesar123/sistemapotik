@@ -89,8 +89,7 @@ class dataobat extends Model
         'nama_obat' => 'required',
         'id_satuan' => 'required',
         'jumlah' => 'required',
-        'harga' => 'required',
-        'kode_obat' => 'required'
+        'harga' => 'required'
     ];
 
     /**

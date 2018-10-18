@@ -13,7 +13,7 @@
 <!-- Id Satuan Field -->
 <div class="form-group">
     {!! Form::label('id_satuan', 'Id Satuan:') !!}
-    <p>{!! $dataobat->id_satuan !!}</p>
+    <p>{!! $dataobat->nama_satuan !!}</p>
 </div>
 
 <!-- Jumlah Field -->

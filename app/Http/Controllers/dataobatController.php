@@ -10,7 +10,7 @@ use App\Repositories\dataobatRepository;
 use Flash;
 use App\Http\Controllers\AppBaseController;
 use Response;
-
+use App\Models\satuan as Satuan;
 class dataobatController extends AppBaseController
 {
     /** @var  dataobatRepository */
@@ -39,7 +39,8 @@ class dataobatController extends AppBaseController
      */
     public function create()
     {
-        return view('dataobats.create');
+        $data = Satuan::all();
+        return view('dataobats.create',['datasatuan' => $data]);
     }
 
     /**
@@ -51,11 +52,16 @@ class dataobatController extends AppBaseController
      */
     public function store(CreatedataobatRequest $request)
     {
-        $input = $request->all();
-
+        $input = array(
+            'id_satuan' => $request->id_satuan,
+            'nama_obat' => $request->nama_obat,
+            'jumlah' => $request->jumlah,
+            'harga' => $request->harga,
+            'kode_obat' => 'OB'.rand(10000,99999)
+        );
         $dataobat = $this->dataobatRepository->create($input);
 
-        Flash::success('Dataobat saved successfully.');
+        Flash::success('obat saved successfully.');
 
         return redirect(route('dataobats.index'));
     }
@@ -96,8 +102,8 @@ class dataobatController extends AppBaseController
 
             return redirect(route('dataobats.index'));
         }
-
-        return view('dataobats.edit')->with('dataobat', $dataobat);
+        $data = Satuan::all();
+        return view('dataobats.edit',['datasatuan'=>$data])->with('dataobat', $dataobat);
     }
 
     /**
