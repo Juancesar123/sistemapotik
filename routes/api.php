@@ -23,3 +23,7 @@ Route::middleware('auth:api')->get('/user', function (Request $request) {
 Route::resource('satuans', 'satuanAPIController');
 
 Route::resource('dataobats', 'dataobatAPIController');
+
+
+
+Route::resource('transaksi_obats', 'transaksi_obatAPIController');
