@@ -29,7 +29,9 @@ class transaksi_obatDataTable extends DataTable
      */
     public function query(transaksi_obat $model)
     {
-        return $model->newQuery();
+        return $model->newQuery()->join('satuans', 'transaksi_obats.satuan', '=', 'satuans.id')
+        ->join('dataobats', 'transaksi_obats.kd_obat', '=', 'dataobats.id')
+        ->select('transaksi_obats.*','satuans.nama_satuan','dataobats.nama_obat','dataobats.kode_obat');
     }
 
     /**
@@ -64,7 +66,8 @@ class transaksi_obatDataTable extends DataTable
     protected function getColumns()
     {
         return [
-            'kd_obat',
+            'kode_obat',
+            'nama_obat',
             'qty',
             'satuan',
             'total_harga'

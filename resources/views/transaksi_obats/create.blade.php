@@ -22,3 +22,26 @@
         </div>
     </div>
 @endsection
+@section('scripts')
+<script>
+    $(document).ready(function() {
+        $('.js-example-basic-single').select2();
+        $('.js-example-basic-single').on('change',function(){
+            $id = $('.js-example-basic-single').val();
+            console.log($id);
+            $.ajax({
+                method:'GET',
+                url:'/getspesific/'+$id,
+                success:function(data){
+                    data.forEach(function(element) {
+                        $('#satuan1').val(element.nama_satuan);
+                        $('#satuan').val(element.id_satuan);
+                        $('#namaobat').val(element.nama_obat);
+                    });
+                    
+                }
+            })
+        })
+    });
+</script>
+@endsection

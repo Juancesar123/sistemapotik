@@ -76,7 +76,7 @@ class transaksi_obat extends Model
     protected $casts = [
         'kd_obat' => 'integer',
         'qty' => 'string',
-        'satuan' => 'integer',
+        'satuan' => 'string',
         'total_harga' => 'string'
     ];
 

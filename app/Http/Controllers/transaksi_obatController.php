@@ -10,7 +10,8 @@ use App\Repositories\transaksi_obatRepository;
 use Flash;
 use App\Http\Controllers\AppBaseController;
 use Response;
-
+use Illuminate\Support\Facades\DB;
+use App\Models\dataobat as Dataobat;
 class transaksi_obatController extends AppBaseController
 {
     /** @var  transaksi_obatRepository */
@@ -39,7 +40,8 @@ class transaksi_obatController extends AppBaseController
      */
     public function create()
     {
-        return view('transaksi_obats.create');
+        $data = Dataobat::all();
+        return view('transaksi_obats.create',['dataobat'=>$data]);
     }
 
     /**
@@ -147,5 +149,13 @@ class transaksi_obatController extends AppBaseController
         Flash::success('Transaksi Obat deleted successfully.');
 
         return redirect(route('transaksiObats.index'));
+    }
+    public function getspesific($id){
+        $data = DB::table('dataobats')
+        ->join('satuans', 'satuans.id', '=', 'dataobats.id_satuan')
+        ->select('dataobats.*', 'satuans.nama_satuan')
+        ->where('dataobats.id','=',$id)
+        ->get();
+        return $data;
     }
 }

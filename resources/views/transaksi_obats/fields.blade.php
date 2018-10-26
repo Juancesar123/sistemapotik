@@ -1,9 +1,16 @@
 <!-- Kd Obat Field -->
 <div class="form-group col-sm-6">
     {!! Form::label('kd_obat', 'Kd Obat:') !!}
-    {!! Form::text('kd_obat', null, ['class' => 'form-control']) !!}
+    <select class="js-example-basic-single form-control" name="kd_obat" id="kd_obat">
+        @foreach($dataobat as $obat)
+            <option value="{{$obat->id}}">{{$obat->kode_obat}}</option>
+        @endforeach
+    </select>
 </div>
-
+<div class="form-group col-sm-6">
+    {!! Form::label('Nama Obat', 'Nama Obat:') !!}
+    <input class="form-control" id="namaobat"  disabled>
+</div>
 <!-- Qty Field -->
 <div class="form-group col-sm-6">
     {!! Form::label('qty', 'Qty:') !!}
@@ -13,8 +20,10 @@
 <!-- Satuan Field -->
 <div class="form-group col-sm-6">
     {!! Form::label('satuan', 'Satuan:') !!}
-    {!! Form::text('satuan', null, ['class' => 'form-control']) !!}
+    <input class="form-control" id="satuan1" name="satuan1" disabled>
+    <input class="form-control" id="satuan" name="satuan"  type="hidden">
 </div>
+
 
 <!-- Total Harga Field -->
 <div class="form-group col-sm-6">
