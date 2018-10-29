@@ -11,6 +11,7 @@ use Flash;
 use App\Http\Controllers\AppBaseController;
 use Response;
 use Illuminate\Support\Facades\DB;
+use App\Models\transaksi_obat as TransaksiObat;
 use App\Models\dataobat as Dataobat;
 class transaksi_obatController extends AppBaseController
 {
@@ -156,6 +157,10 @@ class transaksi_obatController extends AppBaseController
         ->select('dataobats.*', 'satuans.nama_satuan')
         ->where('dataobats.id','=',$id)
         ->get();
+        return $data;
+    }
+    public function getreport(){
+        $data = TransaksiObat::all();
         return $data;
     }
 }

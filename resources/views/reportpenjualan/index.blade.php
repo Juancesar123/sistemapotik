@@ -31,7 +31,7 @@ $('document').ready(function(){
     var data;
     $('.load').hide();
     $.ajax({
-        url:'getstatistik',
+        url:'laporantransaksi',
         method:'GET',
         beforeSend:function(){
             $('.load').show();
@@ -39,7 +39,8 @@ $('document').ready(function(){
         success:function(val){
             var items = {}, base, key;
             $.each(val, function(index, data) {
-                key = data.agama;
+               var convert = new Date(data.created_at);
+               key = convert.getFullYear();
                 if (!items[key]) {
                     items[key] = 0;
                 }

@@ -69,7 +69,7 @@ class transaksi_obatDataTable extends DataTable
             'kode_obat',
             'nama_obat',
             'qty',
-            'satuan',
+            'nama_satuan',
             'total_harga'
         ];
     }

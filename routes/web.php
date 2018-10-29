@@ -25,5 +25,5 @@ Route::resource('satuans', 'satuanController');
 Route::resource('dataobats', 'dataobatController');
 Route::get('/getstatistik','laporanpenjualan@datastatistik');
 Route::get('/getspesific/{id}','transaksi_obatController@getspesific');
-
+Route::get('/laporantransaksi','transaksi_obatController@getreport');
 Route::resource('transaksiObats', 'transaksi_obatController');
